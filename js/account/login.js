@@ -33,6 +33,7 @@ const Login = () => {
 
 function responseData (result) {
     if (result.status === 200) {
+        setCookieWithExpireHour("Authorization", result.token, 2);
         Swal.fire({
           icon: "success",
           title: "Login Successful",
