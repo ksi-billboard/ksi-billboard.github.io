@@ -2,9 +2,12 @@ import { getValue } from "https://jscroot.github.io/element/croot.js";
 import { setCookieWithExpireHour } from "https://jscroot.github.io/cookie/croot.js";
 
 function postLogin(target_url, data, responseFunction) {
+    const myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
 
     const requestOptions = {
         method: 'POST',
+        headers: myHeaders,
         body: JSON.stringify(data),
         redirect: 'follow'
     };
@@ -16,6 +19,7 @@ function postLogin(target_url, data, responseFunction) {
 }
 
 const Login = () => {
+
     const target_url = "https://asia-southeast2-keamanansistem.cloudfunctions.net/login";
     
     const data = {
