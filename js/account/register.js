@@ -18,12 +18,12 @@ const Register = () => {
     const target_url = "https://asia-southeast2-keamanansistem.cloudfunctions.net/register";
     
     const data = {
-        "nama" : getValue("nama"),
-        "phonenumber": getValue("phonenumber"),
+        "namalengkap" : getValue("namalengkap"),
+        "nohp": getValue("nohp"),
         "ktp": getValue("ktp"),
         "email": getValue("email"),
         "password": getValue("password"),
-        "confirmpassword": getValue("confirmpassword"),
+        "confirmpass": getValue("confirmpass"),
     };
     
     postRegister(target_url, data, responseData);
