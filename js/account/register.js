@@ -30,7 +30,7 @@ const Register = () => {
 }
 
 function responseData (result) {
-    if (result.status === true) {
+    if (result.status === 200) {
         Swal.fire({
             icon: "success",
             title: "Register Successful",
