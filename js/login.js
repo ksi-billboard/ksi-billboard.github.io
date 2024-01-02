@@ -27,20 +27,18 @@ const Login = () => {
         "password": getValue("password"),
     };
 
-    postWithToken(target_url, data, responseData);
+    postLogin(target_url, data, responseData);
 
 }
 
-const responseData = (result) => {
+function responseData (result) {
     if (result.status === 200) {
-        setCookieWithExpireHour("Authorization", result.token, 2);
-
         Swal.fire({
           icon: "success",
           title: "Login Successful",
           text: result.message,
         }).then(() => {
-            window.location.href = "#";
+            window.location.href = "../index.html";
         });
 
     } else {
@@ -52,6 +50,4 @@ const responseData = (result) => {
     }
 };
 
-const btnLogin = document.getElementById("btnLogin");
-
-btnLogin.addEventListener("click", Login);
+document.getElementById("button2").addEventListener("click", Login);
