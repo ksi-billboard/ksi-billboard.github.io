@@ -18,10 +18,7 @@ const Login = () => {
 function responseData (result) {
     console.log(result);
 
-    const credential = result.data || {};
-    const responData = credential.ResponData || {};
-
-    console.log("responData", responData);
+    console.log("responData", result.data);
     switch (result.status) {
         case 200:
             setCookieWithExpireHour("Authorization", result.token, 2);
@@ -30,7 +27,7 @@ function responseData (result) {
                 title: "Login Successful",
                 text: result.message,
               }).then(() => {
-                if (responData.email === "admin@gmail.com") {
+                if (result.data.email === "admin@gmail.com") {
                     window.location.href = "https://ksi-billboard.github.io/ksi-admin";
                 } else {
                     window.location.href = "../index.html";
