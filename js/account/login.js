@@ -31,7 +31,7 @@ function responseData (result) {
                 if (result.data.email === "admin@gmail.com") {
                     window.location.href = "https://ksi-billboard.github.io/ksi-admin";
                 } else {
-                    window.location.href = "../post-job.html";
+                    window.location.href = "../list-bill.html";
                 }
                 //   window.location.href = "../index.html";
               });
