@@ -28,8 +28,8 @@ export function postWithToken(target_url, data, responseFunction) {
     };
 
     fetch(target_url, requestOptions)
-        .then(response => response.text())
-        .then(data => responseFunction(data))
+        .then(response => response.json())
+        .then(result => responseFunction(JSON.parse(result)))
         .catch(error => console.log('error', error));
 }
 
