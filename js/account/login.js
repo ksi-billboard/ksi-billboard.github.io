@@ -24,6 +24,7 @@ function responseData (result) {
                 title: "Login Successful",
                 text: result.message,
               }).then(() => {
+                console.log(result.email);
                 if (result.email === "admin@gmail.com") {
                     window.location.href = "https://ksi-billboard.github.io/ksi-admin";
                 } else {
