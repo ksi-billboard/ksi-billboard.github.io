@@ -21,7 +21,7 @@ function responseData (result) {
         case 200:
             Swal.fire({
                 icon: "success",
-                title: "Login Successful",
+                title: "Register Successful",
                 text: result.message,
               }).then(() => {
                   window.location.href = "../index.html";
@@ -29,15 +29,15 @@ function responseData (result) {
             break;
         case 400:
             Swal.fire({
-                icon: "Bad Request",
-                title: "Login Failed",
+                icon: "error",
+                title: "Bad Request: Register Failed",
                 text: result.message,
               });
             break;
         default:
             Swal.fire({
-                icon: "Unknown Error",
-                title: "Login Failed",
+                icon: "error",
+                title: "Unknown Error: Register Failed",
                 text: result.message,
             });
             break;

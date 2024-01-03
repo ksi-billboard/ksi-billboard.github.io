@@ -29,29 +29,29 @@ function responseData (result) {
             break;
         case 400:
             Swal.fire({
-                icon: "Bad Request",
-                title: "Login Failed",
+                icon: "error",
+                title: "Bad Request: Login Failed",
                 text: result.message,
               });
             break;
         case 401:
             Swal.fire({
-                icon: "Unauthorized",
-                title: "Insert Failed",
+                icon: "error",
+                title: "Unauthorized: Insert Failed",
                 text: result.message,
             });
             break;
         case 403:
             Swal.fire({
-                icon: "Forbidden",
-                title: "Insert Failed",
+                icon: "error",
+                title: "Forbidden: Insert Failed",
                 text: result.message,
             });
             break;
         default:
             Swal.fire({
-                icon: "Unknown Error",
-                title: "Login Failed",
+                icon: "error",
+                title: "Unknown Error: Login Failed",
                 text: result.message,
             });
             break;
