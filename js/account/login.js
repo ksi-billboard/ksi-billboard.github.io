@@ -16,7 +16,7 @@ const Login = () => {
 }
 
 function responseData (result) {
-    console.log(result);
+    console.log(result.responseData);
     switch (result.status) {
         case 200:
             setCookieWithExpireHour("Authorization", result.token, 2);
