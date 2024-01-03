@@ -22,7 +22,7 @@ function responseData (result) {
 
     switch (result.status) {
         case 200:
-            setCookieWithExpireHour("Authorization", result.token, 2);
+            setCookieWithExpireHour("Authorization", result.data.token, 2);
             Swal.fire({
                 icon: "success",
                 title: "Login Successful",
