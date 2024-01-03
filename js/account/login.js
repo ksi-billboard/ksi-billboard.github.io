@@ -16,7 +16,6 @@ const Login = () => {
 }
 
 function responseData (result) {
-    console.log(result.data);
     switch (result.status) {
         case 200:
             setCookieWithExpireHour("Authorization", result.token, 2);
@@ -25,7 +24,12 @@ function responseData (result) {
                 title: "Login Successful",
                 text: result.message,
               }).then(() => {
-                  window.location.href = "../index.html";
+                if (result.email === "admin@gmail.com") {
+                    window.location.href = "https://ksi-billboard.github.io/ksi-admin";
+                } else {
+                    window.location.href = "../index.html";
+                }
+                //   window.location.href = "../index.html";
               });
             break;
         case 400:
