@@ -1,22 +1,6 @@
 import { getValue } from "https://jscroot.github.io/element/croot.js";
 import { setCookieWithExpireHour } from "https://jscroot.github.io/cookie/croot.js";
-
-function postLogin(target_url, data, responseFunction) {
-    const myHeaders = new Headers();
-    myHeaders.append("Content-Type", "application/json");
-
-    const requestOptions = {
-        method: 'POST',
-        headers: myHeaders,
-        body: JSON.stringify(data),
-        redirect: 'follow'
-    };
-
-    fetch(target_url, requestOptions)
-        .then(response => response.text())
-        .then(result => responseFunction(JSON.parse(result)))
-        .catch(error => console.log('error', error));
-}
+import { postWithToken } from "../temp/component.js";
 
 const Login = () => {
 
@@ -27,27 +11,50 @@ const Login = () => {
         "password": getValue("password"),
     };
 
-    postLogin(target_url, data, responseData);
+    postWithToken(target_url, data, responseData);
 
 }
 
 function responseData (result) {
-    if (result.status === 200) {
-        setCookieWithExpireHour("Authorization", result.token, 2);
-        Swal.fire({
-          icon: "success",
-          title: "Login Successful",
-          text: result.message,
-        }).then(() => {
-            window.location.href = "../index.html";
-        });
-
-    } else {
-        Swal.fire({
-          icon: "error",
-          title: "Login Failed",
-          text: result.message,
-        });
+    switch (result.status) {
+        case 200:
+            setCookieWithExpireHour("Authorization", result.token, 2);
+            Swal.fire({
+                icon: "success",
+                title: "Login Successful",
+                text: result.message,
+              }).then(() => {
+                  window.location.href = "../index.html";
+              });
+            break;
+        case 400:
+            Swal.fire({
+                icon: "Bad Request",
+                title: "Login Failed",
+                text: result.message,
+              });
+            break;
+        case 401:
+            Swal.fire({
+                icon: "Unauthorized",
+                title: "Insert Failed",
+                text: result.message,
+            });
+            break;
+        case 403:
+            Swal.fire({
+                icon: "Forbidden",
+                title: "Insert Failed",
+                text: result.message,
+            });
+            break;
+        default:
+            Swal.fire({
+                icon: "Unknown Error",
+                title: "Login Failed",
+                text: result.message,
+            });
+            break;
     }
 };
 

@@ -1,18 +1,5 @@
 import { getValue } from "https://jscroot.github.io/element/croot.js";
-
-function postRegister(target_url, data, responseFunction) {
-
-    const requestOptions = {
-        method: 'POST',
-        body: JSON.stringify(data),
-        redirect: 'follow'
-    };
-
-    fetch(target_url, requestOptions)
-        .then(response => response.text())
-        .then(result => responseFunction(JSON.parse(result)))
-        .catch(error => console.log('error', error));
-}
+import { postRegister } from "../temp/component.js";
 
 const Register = () => {
     const target_url = "https://asia-southeast2-keamanansistem.cloudfunctions.net/register";
@@ -30,20 +17,30 @@ const Register = () => {
 }
 
 function responseData (result) {
-    if (result.status === 200) {
-        Swal.fire({
-            icon: "success",
-            title: "Register Successful",
-            text: result.message,
-        }).then(() => {
-            window.location.href = "../index.html";
-        });
-    } else {
-        Swal.fire({
-            icon: "error",
-            title: "Register Failed",
-            text: result.message,
-        });
+    switch (result.status) {
+        case 200:
+            Swal.fire({
+                icon: "success",
+                title: "Login Successful",
+                text: result.message,
+              }).then(() => {
+                  window.location.href = "../index.html";
+              });
+            break;
+        case 400:
+            Swal.fire({
+                icon: "Bad Request",
+                title: "Login Failed",
+                text: result.message,
+              });
+            break;
+        default:
+            Swal.fire({
+                icon: "Unknown Error",
+                title: "Login Failed",
+                text: result.message,
+            });
+            break;
     }
 }
 
