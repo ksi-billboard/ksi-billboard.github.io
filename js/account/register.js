@@ -5,12 +5,12 @@ const Register = () => {
     const target_url = "https://asia-southeast2-keamanansistem.cloudfunctions.net/register";
     
     const data = {
-        "namalengkap" : getValue("namalengkap"),
-        "nohp": getValue("nohp"),
-        "ktp": getValue("ktp"),
-        "email": getValue("email"),
-        "password": getValue("password"),
-        "confirmpass": getValue("confirmpass"),
+        namalengkap : getValue("namalengkap"),
+        nohp : getValue("nohp"),
+        ktp : getValue("ktp"),
+        email : getValue("email"),
+        password : getValue("password"),
+        confirmpass : getValue("confirmpass"),
     };
     
     postRegister(target_url, data, responseData);
@@ -24,7 +24,7 @@ function responseData (result) {
                 title: "Register Successful",
                 text: result.message,
               }).then(() => {
-                  window.location.href = "../index.html";
+                  window.location.href = "../login.html";
               });
             break;
         case 400:
