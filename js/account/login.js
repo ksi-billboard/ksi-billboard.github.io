@@ -20,6 +20,8 @@ function responseData (result) {
 
     const credential = result.data || {};
     const responData = credential.ResponData || {};
+
+    console.log("responData", responData);
     switch (result.status) {
         case 200:
             setCookieWithExpireHour("Authorization", result.token, 2);
