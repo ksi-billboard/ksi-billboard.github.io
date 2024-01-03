@@ -7,8 +7,8 @@ const Login = () => {
     const target_url = "https://asia-southeast2-keamanansistem.cloudfunctions.net/login";
     
     const data = {
-        "email": getValue("email"),
-        "password": getValue("password"),
+        email : getValue("email"),
+        password : getValue("password"),
     };
 
     postWithToken(target_url, data, responseData);
@@ -28,7 +28,7 @@ function responseData (result) {
                 title: "Login Successful",
                 text: result.message,
               }).then(() => {
-                if (result.message === "Selamat Datang admin@gmail.com") {
+                if (result.data.email === "admin@gmail.com") {
                     window.location.href = "https://ksi-billboard.github.io/ksi-admin";
                 } else {
                     window.location.href = "../index.html";
