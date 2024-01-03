@@ -29,7 +29,7 @@ export function postWithToken(target_url, data, responseFunction) {
 
     fetch(target_url, requestOptions)
         .then(response => response.text())
-        .then(result => responseFunction(JSON.parse(result)))
+        .then(data => responseFunction(JSON.parse(data)))
         .catch(error => console.log('error', error));
 }
 

@@ -19,8 +19,6 @@ function responseData (result) {
     console.log(result);
 
     console.log(result.data);
-    console.log(result.data.email);
-    console.log(result.data.token);
 
     switch (result.status) {
         case 200:
