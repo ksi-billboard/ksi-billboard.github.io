@@ -16,6 +16,4 @@ const logout = () => {
     });
   };
   
-const btnLogout = document.getElementById("btnLogout");
-
-btnLogout.addEventListener("click", logout);
+window.logout = logout;
