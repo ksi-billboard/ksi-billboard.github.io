@@ -26,7 +26,7 @@ const insertSewa = () => {
 }
 
 const responseData = (result) => {
-    if (result.status === true) {
+    if (result.status === 200) {
         Swal.fire({
             icon: "success",
             title: "Insert Successful",

@@ -16,10 +16,7 @@ const Login = () => {
 }
 
 function responseData (result) {
-    console.log(result);
-
-    console.log(result.data);
-
+    const admin = "admin@gmail.com";
     switch (result.status) {
         case 200:
             setCookieWithExpireHour("Authorization", result.data.token, 2);
@@ -28,7 +25,7 @@ function responseData (result) {
                 title: "Login Successful",
                 text: result.message,
               }).then(() => {
-                if (result.data.email === "admin@gmail.com") {
+                if (result.data.email === admin) {
                     window.location.href = "https://ksi-billboard.github.io/ksi-admin";
                 } else {
                     window.location.href = "../list-bill.html";
@@ -42,20 +39,6 @@ function responseData (result) {
                 title: "Bad Request: Login Failed",
                 text: result.message,
               });
-            break;
-        case 401:
-            Swal.fire({
-                icon: "error",
-                title: "Unauthorized: Insert Failed",
-                text: result.message,
-            });
-            break;
-        case 403:
-            Swal.fire({
-                icon: "error",
-                title: "Forbidden: Insert Failed",
-                text: result.message,
-            });
             break;
         default:
             Swal.fire({
