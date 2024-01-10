@@ -8,13 +8,13 @@ const dataBill  = (value) => {
     const data = tableBill
     .replace("#NAMA#", value.nama)
     .replace("#GAMBAR#", value.gambar)
-    .replace("#NAMA1#", value.nama)
     .replace("#PANJANG#", value.panjang)
     .replace("#LEBAR#", value.lebar)
     .replace("#HARGA#", value.harga)
     .replace("#DISTRICT#", value.district)
     .replace("#VILLAGE#", value.village)
     .replace("#ID#", value._id)
+    .replace("#IDSEWA#", value._id)
 
     addInner("tableAllBill", data);
 }

@@ -1,38 +1,34 @@
-import { postWithToken } from "https://jscroot.github.io/api/croot.js";
-import { getCookie } from "https://jscroot.github.io/cookie/croot.js";
+import { insertWithToken } from "../temp/component.js";
 import { getValue } from "https://jscroot.github.io/element/croot.js";
 
 const insertSewa = () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const id = urlParams.get("id");
 
-    const tokenkey = "Authorization";
-    const tokenvalue = getCookie("Authorization");
+    const target_url = "https://asia-southeast2-keamanansistem.cloudfunctions.net/sewa?id=" + id;
 
-    const target_url = "https://asia-southeast2-keamanansistem.cloudfunctions.net/sewa";
-    
-    const data = {
-        kode: getValue("kode"),
-        billboard: {
-            _id: "id billboard"
-        },
-        content: getValue("content"),
-        tanggal_mulai: getValue("tanggal_mulai"),
-        tanggal_selesai: getValue("tanggal_selesai"),
-        status: getValue("status"), // true/false
-    
-    };
+    const imageInput = document.getElementById("content");
+    const file = imageInput.files[0];
 
-    postWithToken(target_url, tokenkey, tokenvalue, data, responseData);
+    const formData = new FormData();
+    formData.append("billboard[_id]", getValue("id"));
+    formData.append("file", file);
+    formData.append("tanggal_mulai", getValue("tanggal_mulai"));
+    formData.append("tanggal_selesai", getValue("tanggal_selesai"));
 
+    console.log(formData);
+
+    insertWithToken(target_url, formData, responseData);
 }
 
 const responseData = (result) => {
-    if (result.status === 200) {
+    if (result.status === 201) {
         Swal.fire({
             icon: "success",
             title: "Insert Successful",
             text: result.message,
         }).then(() => {
-            window.location.href = "pemasukan.html";
+            window.location.href = "post-adv.html";
         });
     } else {
         Swal.fire({
