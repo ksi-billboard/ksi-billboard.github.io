@@ -1,7 +1,7 @@
 import { putData } from "../temp/component.js";
 import { getValue } from "https://jscroot.github.io/element/croot.js";
 
-const updateTodo = () => {
+const updateSewa = () => {
     const urlParams = new URLSearchParams(window.location.search);
     const id = urlParams.get("id");
 
@@ -39,9 +39,9 @@ const responseData = (result) => {
 
 const btnUpdates = document.getElementById("btnUpdate");
 
-// btnUpdates.addEventListener("click", updateTodo);
+// btnUpdates.addEventListener("click", updateSewa);
 
 btnUpdates.addEventListener("click", () => {
     console.log("button aktif");
-    updateTodo();
+    updateSewa();
   });
