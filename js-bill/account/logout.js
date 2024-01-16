@@ -10,6 +10,7 @@ const logout = async () => {
         confirmButtonText: "Benar",
         cancelButtonText: "Tidak",
     });
+    deleteCookie("Authorization");
 
     if (isConfirmed.isConfirmed) {
         await Swal.fire({
@@ -17,7 +18,6 @@ const logout = async () => {
           text: "Anda sudah logout",
           showConfirmButton: false,
         }).then(() => {
-          deleteCookie("Authorization");
           window.location.href = "../index.html";
         });
     }
