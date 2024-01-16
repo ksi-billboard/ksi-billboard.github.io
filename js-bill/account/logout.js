@@ -15,7 +15,7 @@ const logout = async () => {
       if (response.ok) {
         await Swal.fire({
           icon: "success",
-          text: "Data berhasil dihapus",
+          text: "Anda sudah logout",
           showConfirmButton: false,
         }).then(() => {
           deleteCookie("Authorization");
