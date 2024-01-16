@@ -1,12 +1,12 @@
-import { isiData } from "./edit.js";
+import { isiData } from "./edit-sewa.js";
 import { getCookie } from "https://jscroot.github.io/cookie/croot.js";
 
 const urlParams = new URLSearchParams(window.location.search);
 const id = urlParams.get("id");
 
-const urlFetch = "https://asia-southeast2-keamanansistem.cloudfunctions.net/billboard?id=" + id;
+const urlFetch = "https://asia-southeast2-keamanansistem.cloudfunctions.net/sewa?id=" + id;
 
-function getID(target_url, responseFunction) {
+function getSewa(target_url, responseFunction) {
   const myHeaders = new Headers();
   myHeaders.append("Authorization", getCookie("Authorization"));
 
@@ -22,4 +22,4 @@ function getID(target_url, responseFunction) {
     .catch((error) => console.log("error", error));
 }
 
-getID(urlFetch, isiData);
+getSewa(urlFetch, isiData);

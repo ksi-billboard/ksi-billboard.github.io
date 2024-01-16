@@ -1,11 +1,11 @@
 import { getCookie } from "https://jscroot.github.io/cookie/croot.js";
 
 const deleteSewa = async (IDHAPUS) => {
-  const _id = IDHAPUS;
+  const id = IDHAPUS;
   const token = getCookie("Authorization");
 
   const isConfirmed = await Swal.fire({
-    title: "Benarkah anda ingin menghapus data ini?",
+    text: "Benarkah anda ingin menghapus data ini?",
     icon: "warning",
     showCancelButton: true,
     confirmButtonColor: "#3085d6",
@@ -18,8 +18,7 @@ const deleteSewa = async (IDHAPUS) => {
     const myHeaders = new Headers();
     myHeaders.append("Authorization", token);
 
-    const target_url =
-      "https://asia-southeast2-xenon-hawk-402203.cloudfunctions.net/sewa?_id=" + _id;
+    const target_url = "https://asia-southeast2-keamanansistem.cloudfunctions.net/sewa?id=" + id;
 
     try {
       const response = await fetch(target_url, {
@@ -31,7 +30,7 @@ const deleteSewa = async (IDHAPUS) => {
       if (response.ok) {
         await Swal.fire({
           icon: "success",
-          title: "Data berhasil dihapus",
+          text: "Data berhasil dihapus",
           showConfirmButton: false,
         });
         location.reload();

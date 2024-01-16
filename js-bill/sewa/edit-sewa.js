@@ -1,22 +1,23 @@
 export const isiData = (results) => {
-    const inputMapping = [
-      { id: "id", path: "data._id" },
+    const dataSewa = [
+      {id: "tanggal_mulai", path: "data.tanggal_mulai"},
+      {id: "tanggal_selesai", path: "data.tanggal_selesai"},
     ];
 
-    console.log(results);
+      console.log(results);
   
-    inputMapping.forEach(({ id, path, index, property }) => {
+    dataSewa.forEach(({ id, path, index, property }) => {
       const inputElement = document.getElementById(id);
       const value = getNestedValue(results, path, index, property);
       inputElement.value = value;
-      
     });
-  };
+  }
   
   const getNestedValue = (obj, path, index, property) => {
     const value = path
       .split(".")
-      .reduce((value, key) => (value && value[key] ? value[key] : ""), obj);
+      .reduce((value, key) => (value && value[key] !== undefined ? value[key] : ""), obj);
+  
   
     if (
       Array.isArray(value) &&

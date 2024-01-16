@@ -11,7 +11,7 @@ const insertSewa = () => {
     const file = imageInput.files[0];
 
     const formData = new FormData();
-    formData.append("billboard[_id]", getValue("id"));
+    // formData.append("billboard[_id]", getValue("id"));
     formData.append("file", file);
     formData.append("tanggal_mulai", getValue("tanggal_mulai"));
     formData.append("tanggal_selesai", getValue("tanggal_selesai"));
@@ -28,7 +28,7 @@ const responseData = (result) => {
             title: "Insert Successful",
             text: result.message,
         }).then(() => {
-            window.location.href = "post-adv.html";
+            window.location.href = "list-sewa.html";
         });
     } else {
         Swal.fire({

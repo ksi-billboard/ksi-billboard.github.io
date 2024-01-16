@@ -28,8 +28,6 @@ export const tableBill = `
 `;
 
 export const singleBill = `
-<h2>Data Billboard</h2>
-<br>
 <div class="row">
   <div class="col-lg-12">
     <div class="mb-5">
@@ -73,10 +71,33 @@ export const singleBill = `
 </div>
 `;
 
+export const singleSewa = `
+<div class="row">
+  <div class="col-lg-12">
+    <div class="mb-5">
+      <img src="#GAMBAR#" alt="Image" class="img-fluid rounded-0" style="width: 500px; height: 250px;" />
+      
+    </div>
+  </div>
+  <div class="col-lg-12">
+    <div class="mb-5">
+        <div class="bg-light p-3 border rounded mb-4">
+            <h3 class="text-primary  mt-3 h5 pl-3 mb-3 ">Detail Sewa</h3>
+            <ul class="list-unstyled pl-3 mb-0">
+              <li class="mb-2"><strong class="text-black">Tanggal Mulai : </strong> #MULAI# </li>
+              <li class="mb-2"><strong class="text-black">Tanggal Selesai : </strong> #SELESAI# </li>
+              <br>
+            </ul>
+        </div>
+    </div>
+  </div>
+</div>
+`;
+
 export const tableSewa = `
 <ul class="job-listings mb-3">
     <li class="job-listing d-block d-sm-flex pb-3 pb-sm-0 align-items-center">
-        <a href="single-bill.html?id=#ID#"></a>
+        <a href="single-sewa.html?id=#ID#"></a>
         <div class="job-listing">
             <img src="#GAMBAR#" alt="Image" class="img-fluid rounded-0" style="width: 300px; height: 150px;" />
         </div>
@@ -88,7 +109,8 @@ export const tableSewa = `
             </div>
             <div class="job-listing-meta mx-4">
                 <div class="job-listing-position">
-                <a href="#" class="btn btn-primary flex-grow-1 ml-6"></a>
+                    <a href="edit-sewa.html?id=#IDEDIT#" class="btn btn-warning flex-grow-1 ml-6"></a>
+                    <a href="#" type="button" class="btn btn-danger flex-grow-1 ml-4" onclick="deleteSewa('#HAPUS#')"></a>
                 </div>
             </div>
         </div>
