@@ -12,8 +12,8 @@ const updateSewa = () => {
 
     const formData = new FormData();
     formData.append("file", file);
-    formData.append("tanggal_masuk", getValue("tanggal_masuk"));
-    formData.append("tanggal_keluar", getValue("tanggal_keluar"));
+    formData.append("tanggalmasuk", getValue("tanggal_masuk"));
+    formData.append("tanggalkeluar", getValue("tanggal_keluar"));
     
     putData(target_url, formData, responseData);
 };
