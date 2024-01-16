@@ -12,8 +12,8 @@ const updateSewa = () => {
 
     const formData = new FormData();
     formData.append("file", file);
-    formData.append("tanggalmasuk", getValue("tanggal_masuk"));
-    formData.append("tanggalkeluar", getValue("tanggal_keluar"));
+    formData.append("tanggal_mulai", getValue("tanggal_mulai"));
+    formData.append("tanggal_selesai", getValue("tanggal_selesai"));
     
     putData(target_url, formData, responseData);
 };
@@ -23,7 +23,7 @@ const responseData = (result) => {
     if (result.status === 200) {
         Swal.fire({
             icon: "success",
-            // title: "Update Successful",
+            title: "Update Successful",
             text: result.message,
         }).then(() => {
             window.location.href = "list-sewa.html";
@@ -31,7 +31,7 @@ const responseData = (result) => {
     } else {
         Swal.fire({
             icon: "error",
-            // title: "Update Failed",
+            title: "Update Failed",
             text: result.message,
         });
     }
