@@ -12,7 +12,6 @@ const logout = async () => {
     });
 
     if (isConfirmed.isConfirmed) {
-      if (response.ok) {
         await Swal.fire({
           icon: "success",
           text: "Anda sudah logout",
@@ -21,7 +20,6 @@ const logout = async () => {
           deleteCookie("Authorization");
           window.location.href = "../index.html";
         });
-      }
     }
 };
   
