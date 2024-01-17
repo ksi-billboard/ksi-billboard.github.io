@@ -14,6 +14,8 @@ const dataSewa  = (value) => {
     .replace("#HAPUS#", value._id);
 
     addInner("tableAllSewa", data);
+
+    console.log(value);
 }
 
 const responseData = (result) => {

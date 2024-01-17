@@ -1,5 +1,5 @@
 export const tableBill = `
-<ul class="job-listings mb-3">
+<ul class="job-listings mb-3 listBill">
     <li class="job-listing d-block d-sm-flex pb-3 pb-sm-0 align-items-center">
         <a href="single-bill.html?id=#ID#"></a>
         <div class="job-listing">
@@ -15,11 +15,11 @@ export const tableBill = `
                 <span class="icon-room">#DISTRICT#, #VILLAGE#</span> 
             </div>
             <div class="job-listing-meta">
-                <span class="badge badge-danger">Rp. #HARGA#</span>
+                <span class="badge badge-danger booked">Rp. #HARGA#</span>
             </div>
             <div class="job-listing-meta mx-4">
                 <div class="job-listing-position">
-                <a href="post-adv.html?id=#IDSEWA#" class="btn btn-primary flex-grow-1 ml-6"></a>
+                <a href="post-adv.html?id=#IDSEWA#" id="booking" class="btn btn-primary flex-grow-1 ml-6" onclick="isBooked()"></a>
                 </div>
             </div>
         </div>
