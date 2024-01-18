@@ -43,9 +43,9 @@ const responseData = (result) => {
 
 const btnUpdates = document.getElementById("btnUpdate");
 
-btnUpdates.addEventListener("click", updateSewa);
+// btnUpdates.addEventListener("click", updateSewa);
 
-// btnUpdates.addEventListener("click", () => {
-//     console.log("button aktif");
-//     updateSewa();
-//   });
+btnUpdates.addEventListener("click", () => {
+    console.log("button aktif");
+    updateSewa();
+  });

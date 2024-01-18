@@ -1,5 +1,6 @@
 export const isiData = (results) => {
     const dataSewa = [
+      // {id: "content", path: "data.content"},
       {id: "tanggal_mulai", path: "data.tanggal_mulai"},
       {id: "tanggal_selesai", path: "data.tanggal_selesai"},
     ];
@@ -17,7 +18,6 @@ export const isiData = (results) => {
     const value = path
       .split(".")
       .reduce((value, key) => (value && value[key] !== undefined ? value[key] : ""), obj);
-  
   
     if (
       Array.isArray(value) &&
