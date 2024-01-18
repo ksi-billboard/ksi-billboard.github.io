@@ -1,11 +1,12 @@
+// Import necessary functions
 import { putData } from "../temp/component.js";
 import { getValue } from "https://jscroot.github.io/element/croot.js";
 
-const updateSewa = () => {
+const updateSewa = async () => {
     const urlParams = new URLSearchParams(window.location.search);
     const id = urlParams.get("id");
 
-    const target_url = "https://asia-southeast2-keamanansistem.cloudfunctions.net/sewa?id=" + id;
+    const target_url = `https://asia-southeast2-keamanansistem.cloudfunctions.net/sewa?id=${id}`;
 
     const imageInput = document.getElementById("content");
     const file = imageInput.files[0];
@@ -16,34 +17,45 @@ const updateSewa = () => {
     formData.append("tanggal_selesai", getValue("tanggal_selesai"));
 
     console.log(formData);
-    
-    putData(target_url, formData, responseData);
+
+    try {
+        const result = await putData(target_url, formData);
+        handleUpdateResult(result);
+    } catch (error) {
+        console.error("Error during update:", error);
+    }
 };
 
-const responseData = (result) => {
-    console.log("Server Response:", result, result.status);
+const handleUpdateResult = (result) => {
+    console.log("Server Response:", result);
+
     if (result.status === 200) {
-        Swal.fire({
-            icon: "success",
-            title: "Update Successful",
-            text: result.message,
-        }).then(() => {
-            window.location.href = "list-sewa.html";
-        });
+        showSuccessMessage(result.message);
+        redirectToSewaList();
     } else {
-        Swal.fire({
-            icon: "error",
-            title: "Update Failed",
-            text: result.message,
-        });
+        showErrorMessage(result.message);
     }
-}
+};
 
-const btnUpdates = document.getElementById("btnUpdate");
+const showSuccessMessage = (message) => {
+    Swal.fire({
+        icon: "success",
+        title: "Update Successful",
+        text: message,
+    });
+};
 
-// btnUpdates.addEventListener("click", updateSewa);
+const showErrorMessage = (message) => {
+    Swal.fire({
+        icon: "error",
+        title: "Update Failed",
+        text: message,
+    });
+};
 
-btnUpdates.addEventListener("click", () => {
-    console.log("button aktif");
-    updateSewa();
-  });
+const redirectToSewaList = () => {
+    window.location.href = "list-sewa.html";
+};
+
+const btnUpdate = document.getElementById("btnUpdate");
+btnUpdate.addEventListener("click", updateSewa);
