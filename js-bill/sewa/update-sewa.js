@@ -10,25 +10,15 @@ const updateSewa = () => {
     const imageInput = document.getElementById("content");
     const file = imageInput.files[0];
 
-    if (!file) {
-        console.error("No file selected");
-        return;
-    }
-
     const formData = new FormData();
     formData.append("file", file);
+    formData.append("tanggal_mulai", getValue("tanggal_mulai"));
+    formData.append("tanggal_selesai", getValue("tanggal_selesai"));
 
-    fetch(target_url, {
-        method: "PUT",
-        body: formData,
-    })
-    .then(response => response.json())
-    .then(responseData)
-    .catch(error => {
-        console.error("Error:", error);
-    });
+    console.log(formData);
+    
+    putData(target_url, formData, responseData);
 };
-
 
 const responseData = (result) => {
     console.log("Server Response:", result, result.status);
