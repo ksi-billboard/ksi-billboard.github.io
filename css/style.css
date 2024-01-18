@@ -15,6 +15,11 @@
   color: #fff;
 }
 
+.btn-secondary {
+  background-color: #fb3232;
+  color: #fff;
+}
+
 
 @import url("https://fonts.googleapis.com/css?family=Nunito:200,300,400,700");
 .site-navbar {
