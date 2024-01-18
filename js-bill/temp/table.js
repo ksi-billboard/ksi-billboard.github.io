@@ -85,9 +85,9 @@ export const singleBill = `
         <div class="bg-light p-3 border rounded mb-4">
             <h3 class="text-primary  mt-3 h5 pl-3 mb-3 ">Lokasi Billboard</h3>
             <ul class="list-unstyled pl-3 mb-0">
-              <li class="mb-2"><strong class="text-black">Provinsi : </strong> #REGENCY# </li>
-              <li class="mb-2"><strong class="text-black">Kab./Kota : </strong> #DISTRICT# </li>
-              <li class="mb-2"><strong class="text-black">Kecamatan: </strong> #VILLAGE# </li>
+              <li class="mb-2"><strong class="text-black">Kab./Kota: </strong> #REGENCY# </li>
+              <li class="mb-2"><strong class="text-black">Kecamatan : </strong> #DISTRICT# </li>
+              <li class="mb-2"><strong class="text-black">Kelurahan : </strong> #VILLAGE# </li>
               <li class="mb-2"><strong class="text-black">Alamat : </strong> #ADDRESS# </li>
               <li class="mb-2"><strong class="text-black">Titik Pusat : </strong> #LATITUDE#, #LONGITUDE# </li>
             </ul>
