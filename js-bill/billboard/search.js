@@ -1,4 +1,7 @@
-// Import necessary functions or modules if needed
+import { addInner } from "https://jscroot.github.io/element/croot.js";
+import { getWithToken } from "../temp/component.js";
+import { tableBill } from "../temp/table.js";
+import { bookedBill } from "./booked.js";
 
 // Function to filter the data based on search criteria
 const filterData = (data, searchTerm) => {
