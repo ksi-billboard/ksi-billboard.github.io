@@ -64,14 +64,14 @@ export function insertWithToken(target_url, FormData, responseFunction) {
         .catch(error => console.log('error', error));
 }
 
-export function putData(target_url, data, responseFunction) {
+export function putData(target_url, FormData, responseFunction) {
     const myHeaders = new Headers();
     myHeaders.append("Authorization", getCookie("Authorization"));
 
     const requestOptions = {
         method: 'PUT',
         headers: myHeaders,
-        body: JSON.stringify(data),
+        body: FormData,
         redirect: 'follow'
     };
 

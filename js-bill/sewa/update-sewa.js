@@ -5,6 +5,8 @@ const updateSewa = () => {
     const urlParams = new URLSearchParams(window.location.search);
     const id = urlParams.get("id");
 
+    console.log("ID Parameter:", id);
+
     const target_url = "https://asia-southeast2-keamanansistem.cloudfunctions.net/sewa?id=" + id;
 
     const imageInput = document.getElementById("content");
@@ -41,9 +43,9 @@ const responseData = (result) => {
 
 const btnUpdates = document.getElementById("btnUpdate");
 
-// btnUpdates.addEventListener("click", updateSewa);
+btnUpdates.addEventListener("click", updateSewa);
 
-btnUpdates.addEventListener("click", () => {
-    console.log("button aktif");
-    updateSewa();
-  });
+// btnUpdates.addEventListener("click", () => {
+//     console.log("button aktif");
+//     updateSewa();
+//   });
