@@ -1,6 +1,6 @@
 export const isiData = (results) => {
     const dataSewa = [
-      // {id: "content", path: "data.content"},
+      {id: "imagePreview", path: "data.content"},
       {id: "tanggal_mulai", path: "data.tanggal_mulai"},
       {id: "tanggal_selesai", path: "data.tanggal_selesai"},
     ];
@@ -10,7 +10,13 @@ export const isiData = (results) => {
     dataSewa.forEach(({ id, path, index, property }) => {
       const inputElement = document.getElementById(id);
       const value = getNestedValue(results, path, index, property);
-      inputElement.value = value;
+      //imagePreview adalah gambar yang akan ditampilkan
+      if (id === "imagePreview") {
+        inputElement.innerHTML = `<img src="${value}" alt="Preview Gambar" style="max-width: 300px; max-height: 300px;">`;
+      } else {
+        inputElement.value = value;
+      }
+      
     });
   }
   
