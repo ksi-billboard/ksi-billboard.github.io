@@ -5,23 +5,23 @@ import { bookedBill } from "./booked.js";
 
 const target_url = "https://asia-southeast2-keamanansistem.cloudfunctions.net/billboard"
 
-const dataBill = (value) => {
+const dataBill  = (value) => {
     const data = tableBill
-        .replace("#NAMA#", value.nama)
-        .replace("#GAMBAR#", value.gambar)
-        .replace("#PANJANG#", value.panjang)
-        .replace("#LEBAR#", value.lebar)
-        .replace("#HARGA#", value.harga)
-        .replace("#DISTRICT#", value.district)
-        .replace("#VILLAGE#", value.village)
-        .replace("#ID#", value._id)
-        .replace("#IDSEWA#", value._id)
+    .replace("#GAMBAR#", value.gambar)
+    .replace("#KODE#", value.kode)
+    .replace("#NAMA#", value.nama)
+    .replace("#PANJANG#", value.panjang)
+    .replace("#LEBAR#", value.lebar)
+    .replace("#HARGA#", value.harga)
+    .replace("#REGENCY#", value.regency)
+    .replace("#DISTRICT#", value.district)
+    .replace("#VILLAGE#", value.village)
+    .replace("#ADDRESS#", value.address)
+    .replace("#LATITUDE#", value.latitude)
+    .replace("#LONGITUDE#", value.longitude)
 
     addInner("tableAllBill", data);
-
     bookedBill(value);
-
-    console.log(value);
 }
 
 const responseData = (result) => {
