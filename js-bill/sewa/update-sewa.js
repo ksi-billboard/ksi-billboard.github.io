@@ -1,61 +1,59 @@
-// Import necessary functions
 import { putData } from "../temp/component.js";
 import { getValue } from "https://jscroot.github.io/element/croot.js";
 
-const updateSewa = async () => {
+const updateSewa = () => {
     const urlParams = new URLSearchParams(window.location.search);
     const id = urlParams.get("id");
 
-    const target_url = `https://asia-southeast2-keamanansistem.cloudfunctions.net/sewa?id=${id}`;
+    const target_url = "https://asia-southeast2-keamanansistem.cloudfunctions.net/sewa?id=" + id;
 
     const imageInput = document.getElementById("content");
     const file = imageInput.files[0];
 
+    if (!file) {
+        console.error("No file selected");
+        return;
+    }
+
     const formData = new FormData();
     formData.append("file", file);
-    formData.append("tanggal_mulai", getValue("tanggal_mulai"));
-    formData.append("tanggal_selesai", getValue("tanggal_selesai"));
 
-    console.log(formData);
-
-    try {
-        const result = await putData(target_url, formData);
-        handleUpdateResult(result);
-    } catch (error) {
-        console.error("Error during update:", error);
-    }
+    fetch(target_url, {
+        method: "PUT",
+        body: formData,
+    })
+    .then(response => response.json())
+    .then(responseData)
+    .catch(error => {
+        console.error("Error:", error);
+    });
 };
 
-const handleUpdateResult = (result) => {
-    console.log("Server Response:", result);
 
+const responseData = (result) => {
+    console.log("Server Response:", result, result.status);
     if (result.status === 200) {
-        showSuccessMessage(result.message);
-        redirectToSewaList();
+        Swal.fire({
+            icon: "success",
+            title: "Update Successful",
+            text: result.message,
+        }).then(() => {
+            window.location.href = "list-sewa.html";
+        });
     } else {
-        showErrorMessage(result.message);
+        Swal.fire({
+            icon: "error",
+            title: "Update Failed",
+            text: result.message,
+        });
     }
-};
+}
 
-const showSuccessMessage = (message) => {
-    Swal.fire({
-        icon: "success",
-        title: "Update Successful",
-        text: message,
-    });
-};
+const btnUpdates = document.getElementById("btnUpdate");
 
-const showErrorMessage = (message) => {
-    Swal.fire({
-        icon: "error",
-        title: "Update Failed",
-        text: message,
-    });
-};
+// btnUpdates.addEventListener("click", updateSewa);
 
-const redirectToSewaList = () => {
-    window.location.href = "list-sewa.html";
-};
-
-const btnUpdate = document.getElementById("btnUpdate");
-btnUpdate.addEventListener("click", updateSewa);
+btnUpdates.addEventListener("click", () => {
+    console.log("button aktif");
+    updateSewa();
+  });
