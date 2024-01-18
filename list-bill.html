@@ -274,6 +274,19 @@
     <!-- >>>>>>> 90da1c32b2b0de8be30fc62292f8780ee47517bd -->
 
     <section class="site-section" id="next">
+      <div class="container">
+        <!-- Add the search bar here -->
+        <div class="row mb-4">
+          <div class="col-md-6 offset-md-3">
+            <form id="searchForm" class="search-form">
+              <input type="text" id="searchInput" class="form-control" placeholder="Search by location...">
+              <button type="submit" class="btn btn-primary">Search</button>
+              <button type="button" id="clearSearchButton" class="ml-3 btn btn-secondary">Clear</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    
       <div class="container" id="tableAllBill">
         
         <!-- <div class="row mb-5 justify-content-center">
@@ -456,6 +469,7 @@
 
   <script type="module" src="js-bill/billboard/get.js"></script>
   <script type="module" src="js-bill/account/logout.js"></script>
+  <script type="module" src="js-bill/billboard/search.js"></script>
 
 </body>
 

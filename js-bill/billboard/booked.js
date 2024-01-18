@@ -1,5 +1,6 @@
+// booked.js
 export const bookedBill = (value) => {
-    if (value.booking === true) {
+    if (value && (value.booking || value.booked)) {
         const bookingButtons = document.querySelectorAll("#booking");
         bookingButtons.forEach(button => {
             button.style.display = "none";
