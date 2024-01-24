@@ -196,7 +196,7 @@ export const tableSewa = `
                 <h2><b>Tanggal Selesai : </b> #SELESAI#</h2> 
             </div>
             <div class="job-listing-meta">
-                <a href="transaksi.html" class="btn btn-success">
+                <a href="transaksi.html?id=#ID#" class="btn btn-success">
                 </a>
             </div>
             <div class="job-listing-meta mx-4">

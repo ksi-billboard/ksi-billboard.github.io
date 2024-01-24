@@ -49,18 +49,28 @@
             border: none;
         }
     </style>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.all.min.js"></script>
 </head>
 <body>
 
     <div class="transaction-container">
         <div class="transaction-title">Transaction Details</div>
-        <div class="transaction-details">
-            <label for="totalHarga"><strong>Total Harga:</strong></label>
-            <input type="text" id="totalHarga">
-        </div>        
-        <div class="btn-container">
-            <button class="btn-pay" onclick="pay()">Pay</button>
-            <button class="btn-cancel" onclick="cancel()">Cancel</button>
+        <div id="transaksi">
+            <!-- <div class="transaction-details">
+                <label for="totalHarga"><strong>Harga:</strong></label>
+                <input type="text" id="harga1">
+            </div>
+            <br>
+            <p>*) masukkan nominal harga diatas</p> -->
+            <div class="transaction-details">
+                <label for="totalHarga"><strong>Total Harga:</strong></label>
+                <input type="text" id="harga">
+            </div>     
+            <div class="btn-container">
+                <button class="btn-pay" id="btnUpdate">Pay</button>
+                <button class="btn-cancel" onclick="cancel()">Cancel</button>
+            </div>
         </div>
     </div>
 
@@ -78,6 +88,7 @@
         }
     </script>
     
+    <script type="module" src="./js-bill/sewa/bayar.js"></script>
 
 </body>
 </html>

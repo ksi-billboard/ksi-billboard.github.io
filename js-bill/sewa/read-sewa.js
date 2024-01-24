@@ -11,7 +11,8 @@ const dataSewa  = (value) => {
     .replace("#SELESAI#", value.tanggal_selesai)
     .replace("#ID#", value._id)
     .replace("#IDEDIT#", value._id)
-    .replace("#HAPUS#", value._id);
+    .replace("#HAPUS#", value._id)
+    .replace("#ID#", value._id);
 
     addInner("tableAllSewa", data);
 

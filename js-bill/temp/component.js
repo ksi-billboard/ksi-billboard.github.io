@@ -80,3 +80,20 @@ export function putData(target_url, FormData, responseFunction) {
         .then(result => responseFunction(JSON.parse(result)))
         .catch(error => console.log('error', error));
 }
+
+export function putData2(target_url, data, responseFunction) {
+    const myHeaders = new Headers();
+    myHeaders.append("Authorization", getCookie("Authorization"));
+
+    const requestOptions = {
+        method: 'PUT',
+        headers: myHeaders,
+        body:  JSON.stringify(data),
+        redirect: 'follow'
+    };
+
+    fetch(target_url, requestOptions)
+        .then(response => response.text())
+        .then(result => responseFunction(JSON.parse(result)))
+        .catch(error => console.log('error', error));
+}
