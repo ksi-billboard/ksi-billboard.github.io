@@ -27,6 +27,63 @@ export const tableBill = `
 </ul>
 `;
 
+export const tableBillBooked = `
+<ul class="job-listings mb-3 listBill" style="background-color: #FFC0CB;">
+    <li class="job-listing d-block d-sm-flex pb-3 pb-sm-0 align-items-center">
+        <a href="single-bill.html?id=#ID#"></a>
+        <div class="job-listing">
+            <img src="#GAMBAR#" alt="Image" class="img-fluid rounded-0" style="width: 300px; height: 150px;" />
+        </div>
+
+        <div class="job-listing-about d-sm-flex custom-width w-100 justify-content-between mx-4">
+            <div class="job-listing-position custom-width w-50 mb-3 mb-sm-0">
+                <h2>#NAMA#</h2>
+                <strong>#PANJANG# m x #LEBAR# m</strong>
+            </div>
+            <div class="job-listing-location mb-3 mb-sm-0 custom-width w-25">
+                <span class="icon-room">#DISTRICT#, #VILLAGE#</span> 
+            </div>
+            <div class="job-listing-meta">
+                <span class="badge badge-danger booked" style="font-size: 20px; font-style: italic;">BOOKED</span>
+            </div>
+            <div class="job-listing-meta mx-4">
+                <div class="job-listing-position">
+                </div>
+            </div>
+        </div>
+    </li>
+</ul>
+`;
+
+export const dataBillBooked = (item) => {
+    return ` <ul class="job-listings mb-3 listBill" style="background-color: #FFC0CB;">
+    <li class="job-listing d-block d-sm-flex pb-3 pb-sm-0 align-items-center">
+        <a href="single-bill.html?id=${item._id}"></a>
+        <div class="job-listing">
+            <img src="${item.gambar}" alt="Image" class="img-fluid rounded-0" style="width: 300px; height: 150px;" />
+        </div>
+
+        <div class="job-listing-about d-sm-flex custom-width w-100 justify-content-between mx-4">
+            <div class="job-listing-position custom-width w-50 mb-3 mb-sm-0">
+                <h2>${item.nama}</h2>
+                <strong>${item.panjang} m x ${item.lebar} m</strong>
+            </div>
+            <div class="job-listing-location mb-3 mb-sm-0 custom-width w-25">
+                <span class="icon-room">${item.district}, ${item.village}</span> 
+            </div>
+            <div class="job-listing-meta">
+                <span class="badge badge-danger booked" style="font-size: 20px; font-style: italic;">BOOKED</span>
+            </div>
+            <div class="job-listing-meta mx-4">
+                <div class="job-listing-position">
+                </div>
+            </div>
+        </div>
+    </li>
+</ul>
+`;
+};
+
 export const dataBill = (item) => {
     return ` <ul class="job-listings mb-3 listBill">
     <li class="job-listing d-block d-sm-flex pb-3 pb-sm-0 align-items-center">
