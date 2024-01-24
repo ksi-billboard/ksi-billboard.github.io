@@ -22,6 +22,7 @@ const dataBill  = (value) => {
     .replace("#LONGITUDE#", value.longitude)
 
     addInner("tableAllBillBooked", data);
+    
     } else {
         const data = tableBill
     .replace("#GAMBAR#", value.gambar)
