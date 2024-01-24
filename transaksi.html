@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transaction Class</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .transaction-container {
+            max-width: 400px;
+            margin: auto;
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .transaction-title {
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        .transaction-details {
+            margin-bottom: 20px;
+        }
+        .transaction-details span {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .btn-container {
+            text-align: center;
+        }
+        .btn-pay, .btn-cancel {
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+        .btn-pay {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+        }
+        .btn-cancel {
+            background-color: #f44336;
+            color: white;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="transaction-container">
+        <div class="transaction-title">Transaction Details</div>
+        <div class="transaction-details">
+            <label for="totalHarga"><strong>Total Harga:</strong></label>
+            <input type="text" id="totalHarga">
+        </div>        
+        <div class="btn-container">
+            <button class="btn-pay" onclick="pay()">Pay</button>
+            <button class="btn-cancel" onclick="cancel()">Cancel</button>
+        </div>
+    </div>
+
+    <script>
+        function pay() {
+            // Add logic for payment
+            alert('Payment successful!');
+        }
+    
+        function cancel() {
+            // Add logic for cancellation
+            alert('Transaction canceled.');
+            // Redirect to list-sewa.html
+            window.location.href = 'list-sewa.html';
+        }
+    </script>
+    
+
+</body>
+</html>

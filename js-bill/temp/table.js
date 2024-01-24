@@ -138,6 +138,10 @@ export const tableSewa = `
                 <h2><b>Tanggal Mulai : </b> #MULAI#</h2>
                 <h2><b>Tanggal Selesai : </b> #SELESAI#</h2> 
             </div>
+            <div class="job-listing-meta">
+                <a href="transaksi.html" class="btn btn-success">
+                </a>
+            </div>
             <div class="job-listing-meta mx-4">
                 <div class="job-listing-position">
                     <a href="edit-sewa.html?id=#IDEDIT#" class="btn btn-warning flex-grow-1 ml-6"></a>
