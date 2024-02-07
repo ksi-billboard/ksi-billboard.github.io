@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +10,7 @@
             font-family: Arial, sans-serif;
             margin: 20px;
         }
+
         .transaction-container {
             max-width: 400px;
             margin: auto;
@@ -17,32 +19,40 @@
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
+
         .transaction-title {
             font-size: 1.5em;
             font-weight: bold;
             margin-bottom: 15px;
         }
+
         .transaction-details {
             margin-bottom: 20px;
         }
+
         .transaction-details span {
             display: block;
             margin-bottom: 5px;
         }
+
         .btn-container {
             text-align: center;
         }
-        .btn-pay, .btn-cancel {
+
+        .btn-pay,
+        .btn-cancel {
             padding: 10px 20px;
             font-size: 1em;
             cursor: pointer;
             margin-right: 10px;
         }
+
         .btn-pay {
             background-color: #4CAF50;
             color: white;
             border: none;
         }
+
         .btn-cancel {
             background-color: #f44336;
             color: white;
@@ -52,21 +62,16 @@
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.all.min.js"></script>
 </head>
+
 <body>
 
     <div class="transaction-container">
         <div class="transaction-title">Transaction Details</div>
         <div id="transaksi">
-            <!-- <div class="transaction-details">
-                <label for="totalHarga"><strong>Harga:</strong></label>
-                <input type="text" id="harga1">
-            </div>
-            <br>
-            <p>*) masukkan nominal harga diatas</p> -->
             <div class="transaction-details">
                 <label for="totalHarga"><strong>Total Harga: Rp.</strong></label>
                 <input type="text" id="harga">
-            </div>     
+            </div>
             <div class="btn-container">
                 <button class="btn-pay" id="btnUpdate">Pay</button>
                 <button class="btn-cancel" onclick="cancel()">Cancel</button>
@@ -79,7 +84,7 @@
             // Add logic for payment
             alert('Payment successful!');
         }
-    
+
         function cancel() {
             // Add logic for cancellation
             alert('Transaction canceled.');
@@ -87,8 +92,9 @@
             window.location.href = 'list-sewa.html';
         }
     </script>
-    
+
     <script type="module" src="./js-bill/sewa/bayar.js"></script>
 
 </body>
+
 </html>
