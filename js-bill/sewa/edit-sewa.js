@@ -12,7 +12,7 @@ export const isiData = (results) => {
     const value = getNestedValue(results, path);
 
     if (id === "imagePreview") {
-      inputElement.innerHTML = `<img src="${value}" alt="Preview Gambar" style="max-width: 300px; max-height: 300px;">`;
+      inputElement.innerHTML = `<img src="${value}" alt="Preview Gambar" id="imageupdate" style="max-width: 300px; max-height: 300px;">`;
     } else if (id === "tanggal_mulai" || id === "tanggal_selesai") {
       setupCalendarInput(inputElement, value);
     } else {

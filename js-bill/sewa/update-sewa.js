@@ -10,7 +10,11 @@ const updateSewa = () => {
     const target_url = "https://asia-southeast2-keamanansistem.cloudfunctions.net/sewa?id=" + id;
 
     const imageInput = document.getElementById("content");
-    const file = imageInput.files[0];
+    let file = imageInput.files[0];
+
+    if (!file) {
+        file = document.getElementById("imageupdate").src;
+    }
 
     const formData = new FormData();
     formData.append("file", file);

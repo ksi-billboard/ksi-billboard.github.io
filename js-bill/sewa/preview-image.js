@@ -7,7 +7,7 @@ document.getElementById("content").addEventListener("change", function() {
 
         reader.onload = function (e) {
             // Menampilkan gambar di bawahnya
-            preview.innerHTML = '<img src="' + e.target.result + '" alt="Preview Gambar" style="max-width: 300px; max-height: 300px;">';
+            preview.innerHTML = '<img src="' + e.target.result + '" alt="Preview Gambar" id="imageupdate" style="max-width: 300px; max-height: 300px;">';
         };
 
         reader.readAsDataURL(input.files[0]);
