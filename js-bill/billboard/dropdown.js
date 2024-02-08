@@ -20,7 +20,9 @@ const dataBill = (value) => {
         .replace("#VILLAGE#", value.village)
         .replace("#ADDRESS#", value.address)
         .replace("#LATITUDE#", value.latitude)
-        .replace("#LONGITUDE#", value.longitude);
+        .replace("#LONGITUDE#", value.longitude)
+        .replace("#IDSEWA#", value._id)
+        .replace("#ID#", value._id);
 
     addInner("tableAllBill", data);
     bookedBill(value);

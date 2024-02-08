@@ -37,6 +37,7 @@ const dataBill  = (value) => {
     .replace("#ADDRESS#", value.address)
     .replace("#LATITUDE#", value.latitude)
     .replace("#LONGITUDE#", value.longitude)
+    .replace("#IDSEWA#", value._id)
 
     addInner("tableAllBill", data);
     }
