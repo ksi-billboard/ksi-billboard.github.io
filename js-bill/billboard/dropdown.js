@@ -37,27 +37,6 @@ const dataBill  = (value) => {
     // bookedBill(value);
 }
 
-// const dataBill = (value) => {
-//     const data = tableBill
-//         .replace("#GAMBAR#", value.gambar)
-//         .replace("#KODE#", value.kode)
-//         .replace("#NAMA#", value.nama)
-//         .replace("#PANJANG#", value.panjang)
-//         .replace("#LEBAR#", value.lebar)
-//         .replace("#HARGA#", value.harga)
-//         .replace("#REGENCY#", value.regency)
-//         .replace("#DISTRICT#", value.district)
-//         .replace("#VILLAGE#", value.village)
-//         .replace("#ADDRESS#", value.address)
-//         .replace("#LATITUDE#", value.latitude)
-//         .replace("#LONGITUDE#", value.longitude)
-//         .replace("#IDSEWA#", value._id)
-//         .replace("#ID#", value._id);
-
-//     addInner("tableAllBill", data);
-//     bookedBill(value);
-// };
-
 const responseData = (result) => {
     if (result.status === 200) {
         // Clear existing options
@@ -102,6 +81,7 @@ searchDropdown.addEventListener("change", function () {
             const filteredData = filterData(selectedValue, result.data);
 
             // Clear existing data
+            document.getElementById("tableAllBillBooked").innerHTML = "";
             document.getElementById("tableAllBill").innerHTML = "";
 
             // Display the filtered data immediately
@@ -119,6 +99,7 @@ document.getElementById("clearSearchButton").addEventListener("click", function 
     getWithToken(target_url, (result) => {
         if (result.status === 200) {
             // Clear existing data
+            document.getElementById("tableAllBillBooked").innerHTML = "";
             document.getElementById("tableAllBill").innerHTML = "";
 
             // Display all data
